@@ -1,13 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { clearToken } from "@/lib/api";
+import { tokenStore } from "@/lib/api";
 
 export default function Topbar({ title }: { title: string }) {
   const router = useRouter();
 
   function logout() {
-    clearToken();
+    tokenStore.clear();
     router.push("/login");
   }
 
